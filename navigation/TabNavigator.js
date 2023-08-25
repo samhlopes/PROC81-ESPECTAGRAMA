@@ -1,20 +1,23 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+import React from 'react'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feed from "../screens/Feed"
 import CreatePost from "../screens/CreatePost"
+
+const Tab = createBottomTabNavigator()
 
 const BottomTabNavigator = () => {
     return (
         <Tab.Navigator
         screenOptions={({ route}) => ({
-            tabBarIcon: ({ focues, color, size}) => {
+            tabBarIcon: ({ focused, color, size}) => {
                 let iconName;
                 if (route.name === 'Feed') {
                     iconName = focused
                         ? 'book'
-                        : 'book_outline';
+                        : 'book-outline';
                 } else if (route.name === 'CreatePost') {
-                    iconName = focues ? 'create' : 'create-outline';
+                    iconName = focused ? 'create' : 'create-outline';
                 }
                 return <Ionicons name ={iconName} size={size} color={color}/>;
             },
